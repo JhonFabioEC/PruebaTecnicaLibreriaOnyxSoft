@@ -80,8 +80,10 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Book $book)
+    public function show($id)
     {
+        $book = Book::find($id);
+
         if (!$book) {
             $data = [
                 'message' => 'Libro no encontrado',
@@ -101,8 +103,10 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit($id)
     {
+        $book = Book::find($id);
+
         if (!$book) {
             $data = [
                 'message' => 'Libro no encontrado',
@@ -159,8 +163,10 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Book $book)
+    public function destroy($id)
     {
+        $book = Book::find($id);
+
         if (!$book) {
             $data = [
                 'message' => 'Libro no encontrado',
