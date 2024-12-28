@@ -17,20 +17,15 @@ class BookController extends Controller
         $books = Book::all();
 
         if ($books->isEmpty()) {
-            return response()->json([
-                'message' => 'No se encontraron libros'
-            ], 404);
+            $data = [
+                'books' => [],
+                'message' => 'No se encontraron libros',
+                'status' => 404
+            ];
+            return response()->json($data, 404);
         }
 
         return response()->json($books, 200);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -81,29 +76,6 @@ class BookController extends Controller
      * Display the specified resource.
      */
     public function show($id)
-    {
-        $book = Book::find($id);
-
-        if (!$book) {
-            $data = [
-                'message' => 'Libro no encontrado',
-                'status' => 404
-            ];
-            return response()->json($data, 404);
-        }
-
-        $data = [
-            'book' => $book,
-            'status' => 200
-        ];
-
-        return response()->json($data, 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
     {
         $book = Book::find($id);
 

@@ -28,7 +28,7 @@ class BookControllerTest extends TestCase
         $response = $this->getJson('/api/v1/books');
 
         $response->assertStatus(404)
-            ->assertJson(['message' => 'No se encontraron libros']);
+            ->assertJsonStructure(['books', 'message', 'status']);
     }
 
     #[Test]
