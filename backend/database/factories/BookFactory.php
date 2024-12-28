@@ -17,7 +17,7 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->word(),
             'author' => $this->faker->name(),
             'publication_year' => $this->faker->year(),
             'genre' => $this->faker->randomElement([
