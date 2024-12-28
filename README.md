@@ -81,168 +81,180 @@ Sigue los pasos a continuación para configurar y ejecutar el proyecto en tu ent
 
 ### Prerrequisitos 📋
 
-Antes de comenzar, asegúrate de tener instalados los siguientes componentes y herramientas.
+Antes de comenzar con la instalación y ejecución del proyecto, asegúrate de cumplir con los siguientes requisitos:
 
-* Sistema Operativo: Windows (versión recomendada: 10 o superior)
-* Control de Versiones: Git
-* Gestor de Bases de Datos: MySQL
-* Laravel
+#### Sistema Operativo
+- **Windows**: Versión 10 o superior (recomendado).
+
+#### Herramientas de Desarrollo
+1. **Git**: Sistema de control de versiones.
+2. **PHP**: Versión 8.2.4 o superior (recomendado).
+3. **Composer**: Gestor de dependencias para PHP, versión 2.6.4 o superior.
+4. **Laravel**: Framework PHP, versión 5.8.5 o superior.
+5. **Postman**: Para probar y documentar las APIs del proyecto.
+
+#### Base de Datos
+- **MySQL**: Gestor de bases de datos.
 
 ### Instalación 🔧
 
 1. **Clona el repositorio:**
-   ```sh
-   git clone https://github.com/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft.git
-   ```
+    ```sh
+    git clone https://github.com/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft.git
+    ```
 
 2. **Configura el backend:**
-   - Accede al directorio del backend:
-     ```sh
-     cd PruebaTecnicaLibreriaOnyxSoft/backend
-     ```
-   - Instala las dependencias:
-     ```sh
-     composer install
-     ```
-   - Crea el archivo de configuración `.env`:
-     ```sh
-     cp .env.example .env
-     ```
-   - Genera la clave de aplicación:
-     ```sh
-     php artisan key:generate
-     ```
-   - Ejecuta las migraciones y los seeders para la base de datos:
-     ```sh
-     php artisan migrate --seed
-     ```
+  - Accede al directorio del backend:
+    ```sh
+    cd PruebaTecnicaLibreriaOnyxSoft/backend
+    ```
+  - Instala las dependencias:
+    ```sh
+    composer install
+    ```
+  - Crea el archivo de configuración `.env`:
+    ```sh
+    copy .env.example .env
+    ```
+  - Genera la clave de aplicación:
+    ```sh
+    php artisan key:generate
+    ```
+  - Ejecuta las migraciones para la base de datos:
+    ```sh
+    php artisan migrate
+    ```
+  - Ejecuta los seeders para la base de datos (opcional):
+    ```sh
+    php artisan migrate:refresh --seed
+    ```
 
 3. **Configura el frontend:**
-   - Regresa al directorio principal y accede al directorio del frontend:
-     ```sh
-     cd ../frontend
-     ```
-   - Instala las dependencias:
-     ```sh
-     composer install
-     ```
-   - Crea el archivo de configuración `.env`:
-     ```sh
-     cp .env.example .env
-     ```
-   - Genera la clave de aplicación:
-     ```sh
-     php artisan key:generate
-     ```
+  - En la misma terminal, regresa al directorio principal y accede al directorio del frontend:
+    ```sh
+    cd ../frontend
+    ```
+  - Instala las dependencias:
+    ```sh
+    composer install
+    ```
+  - Crea el archivo de configuración `.env`:
+    ```sh
+    copy .env.example .env
+    ```
+  - Genera la clave de aplicación:
+    ```sh
+    php artisan key:generate
+    ```
 
 ### Ejecución ⏯️
 
 1. **Inicia el backend:**
-   - Accede al directorio del backend:
-     ```sh
-     cd PruebaTecnicaLibreriaOnyxSoft/backend
-     ```
-   - Ejecuta el servidor:
-     ```sh
-     php artisan serve --port=8010
-     ```
+  - En una nueva terminal, accede al directorio del backend:
+    ```sh
+    cd PruebaTecnicaLibreriaOnyxSoft/backend
+    ```
+  - Ejecuta el servidor:
+    ```sh
+    php artisan serve --port=8010
+    ```
 
 2. **Inicia el frontend:**
-   - Accede al directorio del frontend:
-     ```sh
-     cd ../frontend
-     ```
-   - Ejecuta el servidor:
-     ```sh
-     php artisan serve --port=8000
-     ```
-   - Abre la url en el navegador:
-     ```sh
-     http://127.0.0.1:8000
-     ```
+  - En una nueva terminal, accede al directorio del frontend:
+    ```sh
+    cd PruebaTecnicaLibreriaOnyxSoft/frontend
+    ```
+  - Ejecuta el servidor:
+    ```sh
+    php artisan serve --port=8020
+    ```
+  - Abre la url en el navegador:
+    ```sh
+    http://127.0.0.1:8020
+    ```
 
 ### Pruebas automáticas 🤖
 
 1. **Ejecuta las pruebas automáticas en el backend:**
-   - Accede al directorio del backend:
-     ```sh
-     cd PruebaTecnicaLibreriaOnyxSoft/backend
-     ```
-   - Ejecuta las pruebas:
-     ```sh
-     php artisan test
-     ```
+  - Accede al directorio del backend:
+    ```sh
+    cd PruebaTecnicaLibreriaOnyxSoft/backend
+    ```
+  - Ejecuta las pruebas:
+    ```sh
+    php artisan test
+    ```
 
 ### Pruebas con postman 👨‍🚀
 
 Para realizar pruebas de los endpoints de la API, puedes usar Postman. A continuación se detallan algunos ejemplos de pruebas que puedes ejecutar:
 
 1. **Listar todos los libros (GET)**
-    - **Método:** `GET`
-    - **Endpoint:** `http://127.0.0.1:8010/api/v1/books`
-    - **Descripción:** Obtiene una lista de todos los libros disponibles en el sistema.
-    - **Pasos:**
-      - Abre Postman y selecciona el método `GET`.
-      - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books`.
-      - Haz clic en Enviar para ver la respuesta, que debería incluir una lista de libros.
+  - **Método:** `GET`
+  - **Endpoint:** `http://127.0.0.1:8010/api/v1/books`
+  - **Descripción:** Obtiene una lista de todos los libros disponibles en el sistema.
+  - **Pasos:**
+    - Abre Postman y selecciona el método `GET`.
+    - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books`.
+    - Haz clic en Enviar para ver la respuesta, que debería incluir una lista de libros.
 
 2. **Crear un nuevo libro (POST)**
-    - **Método:** `POST`
-    - **Endpoint:** `http://127.0.0.1:8010/api/v1/books`
-    - **Descripción:** Crea un nuevo libro en el sistema.
-    - **Cuerpo de la solicitud (Body):**
-        ```json
-        {
-          "title": "Nuevo Libro",
-          "author": "Autor Ejemplo",
-          "publication_year": 2024,
-          "genre": "Comedia"
-        }
-      ```
-    - **Pasos:**
-      - Abre Postman y selecciona el método `POST`.
-      - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books`.
-      - En la pestaña `Body`, selecciona `raw` y luego elige `JSON` como formato.
-      - Pega el JSON de ejemplo para crear un nuevo libro.
-      - Haz clic en Enviar para ver la respuesta, que debería incluir los detalles del libro recién creado.
+  - **Método:** `POST`
+  - **Endpoint:** `http://127.0.0.1:8010/api/v1/books`
+  - **Descripción:** Crea un nuevo libro en el sistema.
+  - **Cuerpo de la solicitud (Body):**
+    ```json
+    {
+      "title": "Nuevo Libro",
+      "author": "Autor Ejemplo",
+      "publication_year": "2024",
+      "genre": "Comedia"
+    }
+    ```
+  - **Pasos:**
+    - Abre Postman y selecciona el método `POST`.
+    - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books`.
+    - En la pestaña `Body`, selecciona `raw` y luego elige `JSON` como formato.
+    - Pega el JSON de ejemplo para crear un nuevo libro.
+    - Haz clic en Enviar para ver la respuesta, que debería incluir los detalles del libro recién creado.
 
 3. **Obtener un libro específico (GET)**
-    - **Método:** `GET`
-    - **Endpoint:** `http://127.0.0.1:8010/api/v1/books/{id}`
-    - **Descripción:** Obtiene los detalles de un libro específico por su `id`.
-    - **Pasos:**
-      - Abre Postman y selecciona el método `GET`.
-      - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books/{id}`, reemplazando `{id}` por el ID del libro que deseas obtener.
-      - Haz clic en Enviar para ver la respuesta con los detalles del libro solicitado.
+  - **Método:** `GET`
+  - **Endpoint:** `http://127.0.0.1:8010/api/v1/books/{id}`
+  - **Descripción:** Obtiene los detalles de un libro específico por su `id`.
+  - **Pasos:**
+    - Abre Postman y selecciona el método `GET`.
+    - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books/{id}`, reemplazando `{id}` por el ID del libro que deseas obtener.
+    - Haz clic en Enviar para ver la respuesta con los detalles del libro solicitado.
 
 4. **Actualizar un libro existente (PUT)**
-    - **Método:** `PUT`
-    - **Endpoint:** `http://127.0.0.1:8010/api/v1/books/{id}`
-    - **Descripción:** Actualiza la información de un libro existente.
-    - **Cuerpo de la solicitud (Body):**
-        ```json
-        {
-          "title": "Cien años de soledad",
-          "author": "Gabriel García Márquez",
-          "publication_year": 1967,
-          "genre": "Literario del Drama"
-        }
-      ```
-    - **Pasos:**
-      - Abre Postman y selecciona el método `PUT`.
-      - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books/{id}`, reemplazando `{id}` por el ID del libro que deseas actualizar
-      - En la pestaña `Body`, selecciona `raw` y luego elige `JSON` como formato.
-      - Pega el JSON con los nuevos detalles del libro.
-      - Haz clic en Enviar para ver la respuesta, que debería incluir los detalles del libro actualizado.
+  - **Método:** `PUT`
+  - **Endpoint:** `http://127.0.0.1:8010/api/v1/books/{id}`
+  - **Descripción:** Actualiza la información de un libro existente.
+  - **Cuerpo de la solicitud (Body):**
+    ```json
+    {
+      "title": "Cien años de soledad",
+      "author": "Gabriel García Márquez",
+      "publication_year": "1967",
+      "genre": "Literario del Drama"
+    }
+    ```
+  - **Pasos:**
+    - Abre Postman y selecciona el método `PUT`.
+    - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books/{id}`, reemplazando `{id}` por el ID del libro que deseas actualizar
+    - En la pestaña `Body`, selecciona `raw` y luego elige `JSON` como formato.
+    - Pega el JSON con los nuevos detalles del libro.
+    - Haz clic en Enviar para ver la respuesta, que debería incluir los detalles del libro actualizado.
 
 5. **Eliminar un libro (DELETE)**
-    - **Método:** `DELETE`
-    - **Endpoint:** `http://127.0.0.1:8010/api/v1/books/{id}`
-    - **Descripción:** Elimina un libro específico por su `id`.
-    - **Pasos:**
-      - Abre Postman y selecciona el método `DELETE`.
-      - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books/{id}`, reemplazando `{id}` por el ID del libro que deseas eliminar.
-      - Haz clic en Enviar para ver la respuesta, que debería confirmar la eliminación del libro.
+  - **Método:** `DELETE`
+  - **Endpoint:** `http://127.0.0.1:8010/api/v1/books/{id}`
+  - **Descripción:** Elimina un libro específico por su `id`.
+  - **Pasos:**
+    - Abre Postman y selecciona el método `DELETE`.
+    - Ingresa la URL: `http://127.0.0.1:8010/api/v1/books/{id}`, reemplazando `{id}` por el ID del libro que deseas eliminar.
+    - Haz clic en Enviar para ver la respuesta, que debería confirmar la eliminación del libro.
 
 
 <p align="right">(<a href="#readme-top">Principio de página</a>)</p>
@@ -278,19 +290,19 @@ Jhon Favio España Cortes - [@jhonydev404](https://www.linkedin.com/in/jhonydev4
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/Errol-Garcia/HeartBeats.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft.svg?style=for-the-badge
 [contributors-url]: https://github.com/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/Errol-Garcia/HeartBeats.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft.svg?style=for-the-badge
 [forks-url]: https://github.com/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/Errol-Garcia/HeartBeats.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft.svg?style=for-the-badge
 [stars-url]: https://github.com/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft/stargazers
 
-[issues-shield]: https://img.shields.io/github/issues/Errol-Garcia/HeartBeats.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft.svg?style=for-the-badge
 [issues-url]: https://github.com/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft/issues
 
-[license-shield]: https://img.shields.io/github/license/Errol-Garcia/HeartBeats.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft.svg?style=for-the-badge
 [license-url]: https://github.com/JhonFabioEC/PruebaTecnicaLibreriaOnyxSoft/blob/master/LICENSE
 
 [HTML.com]: https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white
